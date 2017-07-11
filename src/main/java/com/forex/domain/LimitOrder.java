@@ -6,11 +6,19 @@ public class LimitOrder {
     private double lot_size;
     private Side side;
     private double price;
-
+	private int order_id;
+    
 	String transaction_time;
     String type_of_order;
     String status;
 
+    public int getOrder_id() {
+		return order_id;
+	}
+
+	public void setOrder_id(int order_id) {
+		this.order_id = order_id;
+	}
     
 	public void setCurrency(Currency currency) {
 		this.currency = currency;
