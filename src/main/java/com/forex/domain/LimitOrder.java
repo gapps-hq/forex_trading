@@ -7,7 +7,13 @@ public class LimitOrder {
     private Side side;
     private double price;
 	private int order_id;
+	private Currency currency;
+	private Currency counterCurrency;
     
+	public String getCurrencyPair(Currency currency, Currency counterCurrency) {
+		return String.valueOf(currency + "/" + counterCurrency);
+	}
+
 	String transaction_time;
     String type_of_order;
     String status;
@@ -19,16 +25,12 @@ public class LimitOrder {
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
-    
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
+
 
 	public void setSide(Side side) {
 		this.side = side;
 	}
 
-	private Currency currency;
 
     public double getLot_size() {
 		return lot_size;
@@ -81,10 +83,23 @@ public class LimitOrder {
 		this.limit_price = limit_price;
 	}
     
-    public Currency getCurrency() {
-        return currency;
-    }
 
     public Side getSide() {
         return side;
-}}
+}
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
+	public Currency getCounterCurrency() {
+		return counterCurrency;
+	}
+
+	public void setCounterCurrency(Currency counterCurrency) {
+		this.counterCurrency = counterCurrency;
+	}}
