@@ -3,7 +3,6 @@ package com.forex.domain;
 public class LimitOrder {
 
 	private double limit_price;
-	private Currency currency;
     private double lot_size;
     private Side side;
     private double price;
@@ -11,6 +10,17 @@ public class LimitOrder {
 	String transaction_time;
     String type_of_order;
     String status;
+
+    
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
+	public void setSide(Side side) {
+		this.side = side;
+	}
+
+	private Currency currency;
 
     public double getLot_size() {
 		return lot_size;
@@ -69,14 +79,4 @@ public class LimitOrder {
 
     public Side getSide() {
         return side;
-    }
-
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
-
-	public void setSide(Side side) {
-		this.side = side;
-	}
-    
-}
+}}
