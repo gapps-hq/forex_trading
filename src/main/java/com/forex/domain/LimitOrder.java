@@ -1,90 +1,115 @@
 package com.forex.domain;
 
+import java.sql.Timestamp;
+
 public class LimitOrder {
 
-	private double limit_price;
-    private double lot_size;
-    private Side side;
-    private double price;
-	private int order_id;
-    
-	String transaction_time;
-    String type_of_order;
-    String status;
+    private double limit_price;
+   private int lot_size;
+   private Side side;
+   private double price;
+    private int order_id;
+    private Currency currency_base;
+    private Currency currency_quote;
 
-    public int getOrder_id() {
-		return order_id;
-	}
-
-	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
-	}
-    
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
-
-	public void setSide(Side side) {
-		this.side = side;
-	}
-
-	private Currency currency;
-
-    public double getLot_size() {
-		return lot_size;
-	}
-
-	public void setLot_size(double lot_size) {
-		this.lot_size = lot_size;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
-
-	public String getTransaction_time() {
-		return transaction_time;
-	}
-
-	public void setTransaction_time(String transaction_time) {
-		this.transaction_time = transaction_time;
-	}
-
-	public String getType_of_order() {
-		return type_of_order;
-	}
-
-	public void setType_of_order(String type_of_order) {
-		this.type_of_order = type_of_order;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-    
-    public LimitOrder() {
+    private Timestamp transaction_time;
+   private  TypeOfOrder type_of_order;
+   private Status status;
+   private int cust_id;
+   
+    public Currency getCurrency_base() {
+        return currency_base;
     }
 
-	public double getLimit_price() {
-		return limit_price;
-	}
-
-	public void setLimit_price(double limit_price) {
-		this.limit_price = limit_price;
-	}
-    
-    public Currency getCurrency() {
-        return currency;
+    public void setCurrency_base(Currency currency_base) {
+        this.currency_base = currency_base;
     }
 
-    public Side getSide() {
-        return side;
-}}
+    
+
+   public int getOrder_id() {
+        return order_id;
+    }
+
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
+
+
+    public void setSide(Side side) {
+        this.side = side;
+    }
+
+
+   public int getLot_size() {
+        return lot_size;
+    }
+
+    public void setLot_size(int lot_size) {
+        this.lot_size = lot_size;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public Timestamp getTransaction_time() {
+        return transaction_time;
+    }
+
+    public void setTransaction_time(Timestamp transaction_time) {
+        this.transaction_time = transaction_time;
+    }
+
+    public TypeOfOrder getType_of_order() {
+        return type_of_order;
+    }
+
+    public void setType_of_order(TypeOfOrder type_of_order) {
+        this.type_of_order = type_of_order;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+   
+   public LimitOrder() {
+   }
+
+    public double getLimit_price() {
+        return limit_price;
+    }
+
+    public void setLimit_price(double limit_price) {
+        this.limit_price = limit_price;
+    }
+   
+
+   public Side getSide() {
+       return side;
+}
+
+
+    public Currency getCurrency_quote() {
+        return currency_quote;
+    }
+
+    public void setCurrency_quote(Currency currency_quote) {
+        this.currency_quote = currency_quote;
+    }
+
+    public int getCust_id() {
+        return cust_id;
+    }
+
+    public void setCust_id(int cust_id) {
+        this.cust_id = cust_id;
+    }}
