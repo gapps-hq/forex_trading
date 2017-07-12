@@ -1,4 +1,4 @@
-package com.forex.order.limit.test;
+package com.forex.test;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;

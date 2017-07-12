@@ -1,4 +1,4 @@
-package com.forex.order.market.test;
+package com.forex.test;
 
 import org.junit.Before;
 import org.junit.Test;
