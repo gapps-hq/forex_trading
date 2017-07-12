@@ -4,15 +4,15 @@ import java.sql.Timestamp;
 
 public class LimitOrder {
 
-    private double limit_price;
+   private double limit_price;
    private int lot_size;
    private Side side;
    private double price;
-    private int order_id;
-    private Currency currency_base;
-    private Currency currency_quote;
+   private int order_id;
+   private Currency currency_base;
+   private Currency currency_quote;
 
-    private Timestamp transaction_time;
+   private Timestamp transaction_time;
    private  TypeOfOrder type_of_order;
    private Status status;
    private int cust_id;
@@ -21,11 +21,12 @@ public class LimitOrder {
         return currency_base;
     }
 
+    
+
     public void setCurrency_base(Currency currency_base) {
         this.currency_base = currency_base;
     }
 
-    
 
    public int getOrder_id() {
         return order_id;
@@ -40,47 +41,38 @@ public class LimitOrder {
         this.side = side;
     }
 
+    public int getLot_size() {
+		return lot_size;
+	}
 
-   public int getLot_size() {
-        return lot_size;
-    }
-
-    public void setLot_size(int lot_size) {
-        this.lot_size = lot_size;
-    }
+	public void setLot_size(int lot_size) {
+		this.lot_size = lot_size;
+	}
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
-    public Timestamp getTransaction_time() {
-        return transaction_time;
-    }
+	public TypeOfOrder getType_of_order() {
+		return type_of_order;
+	}
 
-    public void setTransaction_time(Timestamp transaction_time) {
-        this.transaction_time = transaction_time;
-    }
+	public void setType_of_order(TypeOfOrder type_of_order) {
+		this.type_of_order = type_of_order;
+	}
 
-    public TypeOfOrder getType_of_order() {
-        return type_of_order;
-    }
+	public Status getStatus() {
+		return status;
+	}
 
-    public void setType_of_order(TypeOfOrder type_of_order) {
-        this.type_of_order = type_of_order;
-    }
-
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-   
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+       
+	public void setPrice(double price){
+		this.price = price;
+	}
    public LimitOrder() {
    }
 
@@ -112,4 +104,13 @@ public class LimitOrder {
 
     public void setCust_id(int cust_id) {
         this.cust_id = cust_id;
-    }}
+    }
+
+
+
+	public void setTransaction_time(Timestamp timestamp) {
+		this.transaction_time = timestamp;
+		// TODO Auto-generated method stub
+		
+	}
+}

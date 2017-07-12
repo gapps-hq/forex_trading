@@ -11,8 +11,7 @@ import com.forex.domain.LimitOrder;
 import com.forex.repository.LimitOrderRepository;
 
 @RestController
-public class LimitOrderController {
-    
+public class LimitOrderController {    
     @Autowired
     private LimitOrderRepository loRepo;
     @RequestMapping(value = "/order/limit_order/save", method = RequestMethod.POST)
@@ -36,8 +35,6 @@ public class LimitOrderController {
     @RequestMapping(value = "/order/limit_order/get_all", method = RequestMethod.GET)
     public String getAllOrders(){
 //    public List<LimitOrder> getAllOrders(){
-
-        return "get all";
-        
+    	return "getall";
     }
 }
