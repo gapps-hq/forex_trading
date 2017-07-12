@@ -6,7 +6,6 @@ create table customers (
 	name VARCHAR(20) NOT NULL UNIQUE,
 	type_of_user VARCHAR(20) NOT NULL,
 	PRIMARY KEY(cust_id)
-
 );
 
 DROP TABLE orders IF EXISTS;
