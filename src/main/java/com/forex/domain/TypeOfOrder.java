@@ -1,7 +1,6 @@
 package com.forex.domain;
 
-public enum TypeOfOrder 
-{
-	MARKET, LIMIT;
-}
+public enum TypeOfOrder {
+	MARKET, LIMIT
 
+}

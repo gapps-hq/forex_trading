@@ -1,6 +1,6 @@
 package com.forex.domain;
 
-public enum Status
-{
-    PENDING, COMPLETED, CANCELLED;
+
+public enum Status {
+	CANCELLED, COMPLETED, PENDING;
 }

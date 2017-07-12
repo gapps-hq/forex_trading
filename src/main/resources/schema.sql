@@ -1,11 +1,11 @@
 drop table customers if exists;
 
 create table customers (
-    cust_id INT NOT NULL AUTO_INCREMENT,
-    password VARCHAR(64) NOT NULL,
-    name VARCHAR(20) NOT NULL UNIQUE,
-    type_of_user VARCHAR(20) NOT NULL,
-    PRIMARY KEY(cust_id)
+	cust_id INT NOT NULL AUTO_INCREMENT,
+	password VARCHAR(64) NOT NULL,
+	name VARCHAR(20) NOT NULL UNIQUE,
+	type_of_user VARCHAR(20) NOT NULL,
+	PRIMARY KEY(cust_id)
 );
 
 DROP TABLE orders IF EXISTS;
