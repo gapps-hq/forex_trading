@@ -17,7 +17,7 @@ public class LimitOrderController {
 	private LimitOrderRepository loRepo;
 	@RequestMapping(value = "/order/limit_order/save", method = RequestMethod.POST)
 	public String saveLimitOrder(@RequestBody LimitOrder limitOrder){
-		if(limitOrder.getCurrency() == null || limitOrder.getLot_size() == 0){
+		if(limitOrder.getCurrency_base() == null || limitOrder.getCurrency_quote() == null || limitOrder.getLot_size() == 0){
 			//error message
 			return "Please enter currency or amount";
 	

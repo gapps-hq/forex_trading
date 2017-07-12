@@ -3,20 +3,25 @@ package com.forex.domain;
 public class LimitOrder {
 
 	private double limit_price;
-    private double lot_size;
+    private int lot_size;
     private Side side;
     private double price;
 	private int order_id;
-	private Currency currency;
-	private Currency counterCurrency;
+	private Currency currency_base;
+	private Currency currency_quote;
+
+	private String transaction_time;
+    private TypeOfOrder type_of_order;
+    private Status status;
+    private int cust_id;
     
-	public String getCurrencyPair(Currency currency, Currency counterCurrency) {
-		return String.valueOf(currency + "/" + counterCurrency);
+	public Currency getCurrency_base() {
+		return currency_base;
 	}
 
-	String transaction_time;
-    String type_of_order;
-    String status;
+	public void setCurrency_base(Currency currency_base) {
+		this.currency_base = currency_base;
+	}
 
     public int getOrder_id() {
 		return order_id;
@@ -32,11 +37,11 @@ public class LimitOrder {
 	}
 
 
-    public double getLot_size() {
+    public int getLot_size() {
 		return lot_size;
 	}
 
-	public void setLot_size(double lot_size) {
+	public void setLot_size(int lot_size) {
 		this.lot_size = lot_size;
 	}
 
@@ -56,19 +61,19 @@ public class LimitOrder {
 		this.transaction_time = transaction_time;
 	}
 
-	public String getType_of_order() {
+	public TypeOfOrder getType_of_order() {
 		return type_of_order;
 	}
 
-	public void setType_of_order(String type_of_order) {
+	public void setType_of_order(TypeOfOrder type_of_order) {
 		this.type_of_order = type_of_order;
 	}
 
-	public String getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
     
@@ -88,18 +93,19 @@ public class LimitOrder {
         return side;
 }
 
-	public Currency getCurrency() {
-		return currency;
+
+	public Currency getCurrency_quote() {
+		return currency_quote;
 	}
 
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
+	public void setCurrency_quote(Currency currency_quote) {
+		this.currency_quote = currency_quote;
 	}
 
-	public Currency getCounterCurrency() {
-		return counterCurrency;
+	public int getCust_id() {
+		return cust_id;
 	}
 
-	public void setCounterCurrency(Currency counterCurrency) {
-		this.counterCurrency = counterCurrency;
+	public void setCust_id(int cust_id) {
+		this.cust_id = cust_id;
 	}}
