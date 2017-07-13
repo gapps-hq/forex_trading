@@ -113,4 +113,10 @@ public class LimitOrder {
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+	public Timestamp getTransaction_time() {
+		return transaction_time;
+	}
 }

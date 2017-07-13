@@ -1,4 +1,4 @@
-package com.forex.security.config;
+/*package com.forex.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            	.antMatchers("/order/**").permitAll()
+            	.antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
              .and()
              	.httpBasic()
@@ -29,3 +29,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user").password("password").roles("USER");
     }
 }
+*/
