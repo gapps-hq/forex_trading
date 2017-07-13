@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.forex.Application;
 import com.forex.repository.CancelRequestRepository;
-import com.forex.domain.LimitOrder;
 
 
 @RunWith(SpringRunner.class)

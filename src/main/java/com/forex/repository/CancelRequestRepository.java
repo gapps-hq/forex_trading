@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.forex.domain.LimitOrder;
+import com.forex.domain.Order;
 import com.forex.domain.Status;
 
 @Repository
@@ -21,7 +21,7 @@ public class CancelRequestRepository {
 	@Transactional(readOnly = true)
 	public String cancelRequest(int current_id) {
 		// int current_id = Integer.parseInt(order_id);
-		LimitOrder current_order = jdbcTemplate.queryForObject("select * from orders where order_id = ?",
+		Order current_order = jdbcTemplate.queryForObject("select * from orders where order_id = ?",
 				new Object[] { current_id }, new OrderRowMapper());
 		if (current_order.getStatus().equals(Status.PENDING)) {
 			System.out.println("Pending check");
@@ -41,11 +41,11 @@ public class CancelRequestRepository {
 			return "INVALID REQUEST";
 	}
 
-	class OrderRowMapper implements RowMapper<LimitOrder> {
+	class OrderRowMapper implements RowMapper<Order> {
 		@Override
-		public LimitOrder mapRow(ResultSet rs, int rowNum) throws SQLException {
+		public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-			LimitOrder order = new LimitOrder();
+			Order order = new Order();
 			order.setOrder_id(rs.getInt("order_id"));
 			order.setStatus(Status.valueOf(rs.getString("status")));
 			return order;
