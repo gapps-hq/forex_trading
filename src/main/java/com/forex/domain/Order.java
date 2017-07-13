@@ -10,26 +10,9 @@ public class Order{
 	   private int order_id;
 	   private Currency currency_base;
 	   private Currency currency_quote;
-	   private Timestamp transaction_updated;
-	   public Timestamp getTransaction_updated() {
-		return transaction_updated;
-	}
 
-
-
-	public void setTransaction_updated(Timestamp transaction_updated) {
-		this.transaction_updated = transaction_updated;
-	}
-
-
-
-	public Timestamp getTransaction_time() {
-		return transaction_time;
-	}
-
-
-
-	private Timestamp transaction_time;
+	   private Timestamp transaction_time;
+	   private Timestamp time_updated;
 	   private  TypeOfOrder type_of_order;
 	   private Status status;
 	   private int cust_id;
@@ -99,7 +82,6 @@ public class Order{
 	        this.limit_price = limit_price;
 	    }
 	   
-
 	   public Side getSide() {
 	       return side;
 	}
@@ -128,4 +110,17 @@ public class Order{
 			// TODO Auto-generated method stub
 			
 		}
+
+
+
+		public Timestamp getTime_updated() {
+			return time_updated;
+		}
+
+
+
+		public void setTime_updated(Timestamp time_updated) {
+			this.time_updated = time_updated;
+		}
+
 	}

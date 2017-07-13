@@ -1,24 +1,37 @@
 package com.forex.utility;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.forex.domain.Currency;
 import com.forex.domain.Historical;
 import com.forex.domain.Order;
 import com.forex.domain.Side;
 import com.forex.domain.Status;
 import com.forex.domain.TypeOfOrder;
+import com.forex.utility.mappers.HistoricalRowMapper;
 
 public class MatchingFunctions {
 	public boolean checkBaseCurrency(Order order1, Order order2){
 		return order1.getCurrency_base() == (order2.getCurrency_base());
+	}
+
+	 
+	public boolean checkQuoteCurrency(Order order1, Order order2){
+		return order1.getCurrency_quote().equals(order2.getCurrency_quote());
+
+	}
+	
+	public boolean checkLotSize(Order order1, Order order2){
+		return order1.getLot_size() == order2.getLot_size();
+
+	}
+	public boolean checkSide(Order order1, Order order2){
+		return (order1.getSide().equals(Side.BUY) && order2.getSide().equals(Side.SELL)) ||
+				(order1.getSide().equals(Side.SELL) && order2.getSide().equals(Side.BUY));
+
 	}
 	 
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
@@ -143,35 +156,6 @@ public class MatchingFunctions {
 		}
 		return r;
 	}
-	public boolean checkQuoteCurrency(Order order1, Order order2){
-		return order1.getCurrency_quote().equals(order2.getCurrency_quote());
 
-	}
-	
-	public boolean checkLotSize(Order order1, Order order2){
-		return order1.getLot_size() == order2.getLot_size();
 
-	}
-	public boolean checkSide(Order order1, Order order2){
-		return (order1.getSide().equals(Side.BUY) && order2.getSide().equals(Side.SELL)) ||
-				(order1.getSide().equals(Side.SELL) && order2.getSide().equals(Side.BUY));
-
-	}
-	
-	public class HistoricalRowMapper implements RowMapper<Historical>{
-	    @Override
-	    public Historical mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        Historical historical = new Historical();
-	        historical.setRef_id(rs.getInt("ref_id"));
-	        historical.setOrder_id(rs.getInt("order_id"));
-	        historical.setCurr_base(Currency.valueOf(rs.getString("currency_base")));
-	        historical.setCurr_quote(Currency.valueOf(rs.getString("currency_quote")));
-	        historical.setPrice(rs.getDouble("price"));
-	       historical.setLot_size(rs.getInt("lot_size"));
-	       historical.setTransaction_completed(rs.getTimestamp("time_completed"));       
-	        return historical;
-	    }
-	    
-	}
-	
 }

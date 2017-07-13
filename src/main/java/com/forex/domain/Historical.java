@@ -1,4 +1,5 @@
 package com.forex.domain;
+import java.sql.Timestamp;
 
 import java.sql.Timestamp;
 

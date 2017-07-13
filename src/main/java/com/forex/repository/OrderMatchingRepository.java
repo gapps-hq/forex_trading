@@ -18,6 +18,7 @@ import com.forex.domain.TypeOfOrder;
 import com.forex.repository.LimitOrderRepository.LimitOrderMapper;
 import com.forex.utility.MatchingFunctions;
 
+
 @Repository
 public class OrderMatchingRepository {
 
@@ -122,11 +123,9 @@ class OrderMapper implements RowMapper<Order> {
       order.setLimit_price(rs.getDouble("limit_price"));
       order.setSide(Side.valueOf(rs.getString("SIDE")));
       order.setCust_id(1);
-      order.setTransaction_updated(rs.getTimestamp("time_updated"));
+      order.setTime_updated(rs.getTimestamp("time_updated"));
       return order;
     }
 
 }
-
-
 
