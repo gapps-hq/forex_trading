@@ -12,6 +12,7 @@ public class Order{
 	   private Currency currency_quote;
 
 	   private Timestamp transaction_time;
+	   private Timestamp time_updated;
 	   private  TypeOfOrder type_of_order;
 	   private Status status;
 	   private int cust_id;
@@ -109,5 +110,17 @@ public class Order{
 			this.transaction_time = timestamp;
 			// TODO Auto-generated method stub
 			
+		}
+
+
+
+		public Timestamp getTime_updated() {
+			return time_updated;
+		}
+
+
+
+		public void setTime_updated(Timestamp time_updated) {
+			this.time_updated = time_updated;
 		}
 	}

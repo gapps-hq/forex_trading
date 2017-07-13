@@ -34,6 +34,7 @@ DROP TABLE historical_data IF exists;
 CREATE TABLE historical_data
 (
   ref_id INT NOT NULL AUTO_INCREMENT,
+  order_id INT DEFAULT NULL,
   currency_base VARCHAR(16) NOT NULL,
   currency_quote VARCHAR(16) NOT NULL,
   price DOUBLE NOT NULL,

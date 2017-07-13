@@ -1,49 +1,57 @@
 package com.forex.domain;
+import java.sql.Timestamp;
 
 public class Historical {
-	
-	private int ref_id;
-	private Currency currency;
-	private double price;
-	private int lot_size;
-	String transaction_time;
-	
-	
-	public int getRef_id() {
-		return ref_id;
-	}
-	public void setRef_id(int ref_id) {
-		this.ref_id = ref_id;
-	}
-	public Currency getCurrency() {
-		return currency;
-	}
-	public void setCurrency(Currency currency) {
-		this.currency = currency;
-	}
-	public double getPrice() {
-		return price;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public int getLot_size() {
-		return lot_size;
-	}
-	public void setLot_size(int lot_size) {
-		this.lot_size = lot_size;
-	}
-	public String getTransaction_time() {
-		return transaction_time;
-	}
-	public void setTransaction_time(String transaction_time) {
-		this.transaction_time = transaction_time;
-	}
-	
-	
-//	ref_id INT NOT NULL AUTO_INCREMENT,
-//	currency_pair VARCHAR(16) NOT NULL,
-//	price DOUBLE NOT NULL,
-//	lot_size INT NOT NULL,
-//	transaction_time VARCHAR(50) NOT NULL,
+
+    private int ref_id;
+    private Currency curr_quote;
+    private Currency curr_base;
+    private double price;
+    private int lot_size;
+    Timestamp transaction_time;
+    private int order_id;
+
+    public int getOrder_id() {
+        return order_id;
+    }
+    public void setOrder_id(int order_id) {
+        this.order_id = order_id;
+    }
+    public int getRef_id() {
+        return ref_id;
+    }
+    public void setRef_id(int ref_id) {
+        this.ref_id = ref_id;
+    }
+    public Currency getCurr_quote() {
+        return curr_quote;
+    }
+    public void setCurr_quote(Currency curr_quote) {
+        this.curr_quote = curr_quote;
+    }
+    public Currency getCurr_base() {
+        return curr_base;
+    }
+    public void setCurr_base(Currency curr_base) {
+        this.curr_base = curr_base;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public int getLot_size() {
+        return lot_size;
+    }
+    public void setLot_size(int lot_size) {
+        this.lot_size = lot_size;
+    }
+    public Timestamp getTransaction_time() {
+        return transaction_time;
+    }
+    public void setTransaction_time(Timestamp transaction_time) {
+        this.transaction_time = transaction_time;
+    }
+    
 }
