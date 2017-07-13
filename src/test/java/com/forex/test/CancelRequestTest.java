@@ -15,7 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.forex.Application;
 import com.forex.repository.CancelRequestRepository;
-import com.forex.domain.LimitOrder;
 
 
 @RunWith(SpringRunner.class)
@@ -32,7 +31,7 @@ public class CancelRequestTest {
        public void cancelRequestTestDatabase()
        {
 
-            current_status = cq.cancelRequest(1);
+            current_status = cq.cancelRequest(3);
     
        }
         
