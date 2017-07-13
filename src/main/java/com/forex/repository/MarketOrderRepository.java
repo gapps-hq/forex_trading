@@ -20,7 +20,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.forex.domain.Currency;
-import com.forex.domain.MarketOrder;
+import com.forex.domain.Order; 
 import com.forex.domain.Side;
 import com.forex.domain.Status;
 import com.forex.domain.TypeOfOrder;
@@ -33,7 +33,7 @@ public class MarketOrderRepository {
 
     
 	@Transactional
-	public int placeMarketOrder(final MarketOrder marketorder) 
+	public int placeMarketOrder(final Order marketorder) 
 	{
 		KeyHolder holder = new GeneratedKeyHolder();
 	    final String sql = "insert into orders(currency_base, currency_quote, lot_size, transaction_time, type_of_order, side, limit_price, status, cust_id) values (?,?,?,?,?,?,?,?,?)";
@@ -63,28 +63,28 @@ public class MarketOrderRepository {
 	  }
 	
 	@Transactional(readOnly=true)
-	public MarketOrder findMarketOrder(int order_id) 
+	public Order findMarketOrder(int order_id) 
 	{
 		return jdbctemplate.queryForObject("select * from orders where order_id=?",new Object[]{order_id},new MarketOrderRowMapper());
 	}
 
 	@Transactional(readOnly=true)
-	public List<MarketOrder> findAll() {
+	public List<Order> findAll() {
 		// TODO Auto-generated method stub
 		return jdbctemplate.query("select * from orders",new MarketOrderRowMapper());
 	}
 
 }
 
-class MarketOrderRowMapper implements RowMapper<MarketOrder>{
+class MarketOrderRowMapper implements RowMapper<Order>{
 	@Override
-	public MarketOrder mapRow(ResultSet rs, int rowNum) throws SQLException {
-		MarketOrder order = new MarketOrder();
+	public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
+		Order order = new Order();
 		order.setCurrency_base(Currency.valueOf(rs.getString("currency_base")));
 		order.setCurrency_quote(Currency.valueOf(rs.getString("currency_quote")));
 		order.setPrice(rs.getDouble("price"));
         order.setLot_size(rs.getInt("lot_size"));
-        order.setTransaction_time(rs.getString("transaction_time"));
+        order.setTransaction_time(rs.getTimestamp("transaction_time"));
         order.setType_of_order(TypeOfOrder.valueOf(rs.getString("type_of_order")));
         order.setSide(Side.valueOf(rs.getString("side")));
         order.setLimit_price(rs.getDouble("limit_price"));

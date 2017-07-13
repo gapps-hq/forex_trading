@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.forex.Application;
 import com.forex.domain.Currency;
-import com.forex.domain.LimitOrder;
+import com.forex.domain.Order;
 import com.forex.domain.Side;
 import com.forex.domain.Status;
 import com.forex.domain.TypeOfOrder;
@@ -43,7 +43,7 @@ public class TestLimitOrder {
 //    	side VARCHAR(16) NOT NULL,
 //    	limit_price DOUBLE DEFAULT NULL,
 //    	status VARCHAR(20) NOT NULL,
-        LimitOrder limitOrder = new LimitOrder();
+        Order limitOrder = new Order();
         limitOrder.setCust_id(1);
         limitOrder.setCurrency_base(Currency.EUR);
         limitOrder.setCurrency_quote(Currency.USD);
@@ -62,7 +62,7 @@ public class TestLimitOrder {
     @Test
     public void insertSingleMarketOrderCompletesSuccessfully() {
     
-        LimitOrder limitOrders = limitOrderRepository.findOrder(x);
+        Order limitOrders = limitOrderRepository.findOrder(x);
         assertThat("market order size should be 100", 100, equalTo(limitOrders.getLot_size()));
         assertThat("currency base should be EUR", Currency.EUR, equalTo(limitOrders.getCurrency_base()));
         assertThat("Limit Price is 1.2", 1.2, equalTo(limitOrders.getLimit_price()));
