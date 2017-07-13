@@ -1,12 +1,12 @@
 drop table customers if exists;
 
 create table customers (
+
   cust_id INT NOT NULL AUTO_INCREMENT,
   password VARCHAR(64) NOT NULL,
   name VARCHAR(20) NOT NULL UNIQUE,
   type_of_user VARCHAR(20) NOT NULL,
   PRIMARY KEY(cust_id)
-
 );
 
 DROP TABLE orders IF EXISTS;
@@ -33,6 +33,7 @@ DROP TABLE historical_data IF exists;
 
 CREATE TABLE historical_data
 (
+
  ref_id INT NOT NULL AUTO_INCREMENT,
  order_id INT DEFAULT NULL,
  currency_base VARCHAR(16) NOT NULL,

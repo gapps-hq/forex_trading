@@ -10,7 +10,6 @@ public class Order{
        private int order_id;
        private Currency currency_base;
        private Currency currency_quote;
-
        private Timestamp transaction_time;
        private  TypeOfOrder type_of_order;
        private Status status;
@@ -19,16 +18,18 @@ public class Order{
        public Timestamp getTransaction_time() {
         return transaction_time;
     }
-
-
-
-      
+     
+ 
+        public void setTransaction_time(Timestamp timestamp) {
+            this.transaction_time = timestamp;
+            // TODO Auto-generated method stub
+            
+        }
         public Currency getCurrency_base() {
             return currency_base;
         }
 
         
-
         public void setCurrency_base(Currency currency_base) {
             this.currency_base = currency_base;
         }
@@ -47,6 +48,10 @@ public class Order{
             this.side = side;
         }
 
+       public Side getSide() {
+           return side;
+    }
+
         public int getLot_size() {
             return lot_size;
         }
@@ -59,6 +64,10 @@ public class Order{
             return price;
         }
 
+       
+        public void setPrice(double price){
+            this.price = price;
+        }
 
         public TypeOfOrder getType_of_order() {
             return type_of_order;
@@ -75,10 +84,7 @@ public class Order{
         public void setStatus(Status status) {
             this.status = status;
         }
-          
-        public void setPrice(double price){
-            this.price = price;
-        }
+         
 
         public double getLimit_price() {
             return limit_price;
@@ -88,10 +94,6 @@ public class Order{
             this.limit_price = limit_price;
         }
       
-
-       public Side getSide() {
-           return side;
-    }
 
 
         public Currency getCurrency_quote() {
@@ -110,11 +112,4 @@ public class Order{
             this.cust_id = cust_id;
         }
 
-
-
-        public void setTransaction_time(Timestamp timestamp) {
-            this.transaction_time = timestamp;
-            // TODO Auto-generated method stub
-            
-        }
     }

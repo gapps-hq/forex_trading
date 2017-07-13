@@ -87,6 +87,7 @@ class MarketOrderRowMapper implements RowMapper<Order>{
         order.setSide(Side.valueOf(rs.getString("side")));
         order.setLimit_price(rs.getDouble("limit_price"));
         order.setStatus(Status.valueOf(rs.getString("status")));
+        order.setCust_id(rs.getInt("cust_id"));
         
 		return order;
 	}
