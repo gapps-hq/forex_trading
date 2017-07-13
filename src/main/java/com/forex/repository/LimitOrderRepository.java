@@ -17,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.forex.domain.Currency;
-import com.forex.domain.LimitOrder;
+import com.forex.domain.Order;
 import com.forex.domain.Side;
 import com.forex.domain.Status;
 import com.forex.domain.TypeOfOrder;
@@ -32,10 +32,10 @@ public class LimitOrderRepository {
   public LimitOrderRepository(JdbcTemplate jdbcTemplate) {
     this.jdbcTemplate = jdbcTemplate;
   }
-
+  OrderMatchingRepository x = new OrderMatchingRepository();
  
   @Transactional
-  public int saveOrder(final LimitOrder order) {
+  public int saveOrder(final Order order) {
      KeyHolder holder = new GeneratedKeyHolder();
      final String sql = "insert into orders(currency_base, currency_quote, lot_size, transaction_time, type_of_order, side, limit_price, status, cust_id) values (?,?,?,?,?,?,?,?,?)";
     jdbcTemplate.update(new PreparedStatementCreator() {
@@ -53,28 +53,28 @@ public class LimitOrderRepository {
             saveOrderStatement.setDouble(7, order.getLimit_price());
             saveOrderStatement.setString(8, Status.PENDING.name());
             saveOrderStatement.setInt(9, 1);
-
-
+            
             return saveOrderStatement;
         }
     }, 
     holder);
-   
+   // x.matchOrder();
+
    return holder.getKey().intValue();
   }
 
   @Transactional(readOnly=true)
-  public LimitOrder findOrder(int order_id) {
+  public Order findOrder(int order_id) {
       return jdbcTemplate.queryForObject("select * from orders where order_id = ?", new Object[]{order_id},
               (new LimitOrderMapper()));
   }
  
  
-  class LimitOrderMapper implements RowMapper<LimitOrder> {
+  class LimitOrderMapper implements RowMapper<Order> {
 
       @Override
-      public LimitOrder mapRow(ResultSet rs, int rowNum) throws SQLException {
-        LimitOrder order = new LimitOrder();
+      public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Order order = new Order();
         order.setCurrency_base(Currency.valueOf(rs.getString("currency_base")));
         order.setCurrency_quote(Currency.valueOf(rs.getString("currency_quote")));
 
