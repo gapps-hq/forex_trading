@@ -16,13 +16,13 @@ INSERT INTO customers(password, name, type_of_user) VALUES('parth', 'parth', 'TR
 
 
 INSERT INTO orders (cust_id, currency_base,currency_quote, price, lot_size, transaction_time, type_of_order, side, limit_price, status)
-VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'Limit',  'BUY', 1.414, 'COMPLETED');
+VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'LIMIT',  'BUY', 1.414, 'COMPLETED');
 
 INSERT INTO orders (cust_id, currency_base,currency_quote, price, lot_size, transaction_time, type_of_order, side, limit_price, status)
-VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'Limit',  'BUY', 1.414, 'CANCELLED');
+VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'LIMIT',  'BUY', 1.414, 'CANCELLED');
 
 INSERT INTO orders (cust_id, currency_base,currency_quote, price, lot_size, transaction_time, type_of_order, side, limit_price, status)
-VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'Limit',  'BUY', 1.414, 'PENDING');
+VALUES(1, 'EUR', 'USD', 1.1370, 7900, CURRENT_TIMESTAMP(), 'LIMIT',  'BUY', 1.414, 'PENDING');
 
 
 INSERT INTO AUDIT_TABLE(currency_base, currency_quote, price, lot_size, time_created, time_updated, status) VALUES('EUR', 'USD', 1.1370, 7900, parsedatetime('2017-07-10 23:04:59.004', 'yyyy-MM-dd hh:mm:ss.SS') ,parsedatetime('2017-07-10 23:05:59.004', 'yyyy-MM-dd hh:mm:ss.SS') , 'COMPLETED');

@@ -78,6 +78,7 @@ class MarketOrderRowMapper implements RowMapper<Order>{
 	@Override
 	public Order mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Order order = new Order();
+		order.setOrder_id(rs.getInt("order_id"));
 		order.setCurrency_base(Currency.valueOf(rs.getString("currency_base")));
 		order.setCurrency_quote(Currency.valueOf(rs.getString("currency_quote")));
 		order.setPrice(rs.getDouble("price"));

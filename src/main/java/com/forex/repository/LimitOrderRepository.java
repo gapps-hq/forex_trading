@@ -78,7 +78,7 @@ public class LimitOrderRepository {
         Order order = new Order();
         order.setCurrency_base(Currency.valueOf(rs.getString("currency_base")));
         order.setCurrency_quote(Currency.valueOf(rs.getString("currency_quote")));
-
+        order.setOrder_id(rs.getInt("order_id"));
         order.setPrice(rs.getDouble("price"));
         order.setLot_size(rs.getInt("lot_size"));
         order.setTransaction_time(rs.getTimestamp("transaction_time"));
