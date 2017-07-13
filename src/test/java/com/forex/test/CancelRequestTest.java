@@ -31,7 +31,7 @@ public class CancelRequestTest {
        public void cancelRequestTestDatabase()
        {
 
-            current_status = cq.cancelRequest(1);
+            current_status = cq.cancelRequest(3);
     
        }
         

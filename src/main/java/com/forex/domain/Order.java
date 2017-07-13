@@ -23,7 +23,13 @@ public class Order{
 
 	    
 
-	    public void setCurrency_base(Currency currency_base) {
+	    public Timestamp getTransaction_time() {
+			return transaction_time;
+		}
+
+
+
+		public void setCurrency_base(Currency currency_base) {
 	        this.currency_base = currency_base;
 	    }
 

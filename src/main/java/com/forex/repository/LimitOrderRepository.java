@@ -86,6 +86,7 @@ public class LimitOrderRepository {
         order.setLimit_price(rs.getDouble("limit_price"));
         order.setSide(Side.valueOf(rs.getString("SIDE")));
         order.setCust_id(1);
+        order.setOrder_id(rs.getInt("order_id"));
         return order;
       }
 

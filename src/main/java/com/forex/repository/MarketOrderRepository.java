@@ -5,9 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +17,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.forex.domain.Currency;
-import com.forex.domain.Order; 
+import com.forex.domain.Order;
 import com.forex.domain.Side;
 import com.forex.domain.Status;
 import com.forex.domain.TypeOfOrder;
@@ -89,6 +86,9 @@ class MarketOrderRowMapper implements RowMapper<Order>{
         order.setSide(Side.valueOf(rs.getString("side")));
         order.setLimit_price(rs.getDouble("limit_price"));
         order.setStatus(Status.valueOf(rs.getString("status")));
+        order.setCust_id(rs.getInt("cust_id"));
+        order.setOrder_id(rs.getInt("order_id"));
+
         
 		return order;
 	}

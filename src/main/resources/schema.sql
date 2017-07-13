@@ -41,4 +41,22 @@ CREATE TABLE historical_data
   lot_size INT NOT NULL,
   time_completed TIMESTAMP NOT NULL,
   PRIMARY KEY(ref_id)
+
+);
+
+DROP TABLE audit_table IF exists;
+
+CREATE TABLE audit_table
+(
+    order_id INT NOT NULL AUTO_INCREMENT,
+    audit_id INT NOT NULL AUTO_INCREMENT,
+    currency_base VARCHAR(16) NOT NULL,
+    currency_quote VARCHAR(16) NOT NULL,
+    price DOUBLE NOT NULL,
+    lot_size INT NOT NULL,
+    time_created TIMESTAMP NOT NULL,
+    time_updated TIMESTAMP NOT NULL,
+    status VARCHAR(20) NOT NULL,
+    PRIMARY KEY(audit_id)
+
 );
